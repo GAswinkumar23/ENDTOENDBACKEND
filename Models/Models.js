@@ -4,15 +4,14 @@ const eventSchema = new mongoose.Schema({
     description: { type: String, required: true },
     time: { type: String, required: true },
     date: { type: Date, default: Date.now },
-    prority: { type: String, required: true }
-    //userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
+    priority: { type: String, required: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
 const userschema = new mongoose.Schema({
     name: String,
     email: String,
     password: String,
     mobile: Number,
-    events: [eventSchema]
 });
 
 const User = mongoose.model('User', userschema);
