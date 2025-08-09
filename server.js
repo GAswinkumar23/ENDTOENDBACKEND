@@ -4,9 +4,11 @@ require('dotenv').config();
 const Signroute = require('./Routes/AuthenticationRoutes/signup.js');
 const loginRoute = require('./Routes/AuthenticationRoutes/login.js');
 const Tokenverify = require('./Routes/Middleware/TokenVerify.js');
-const DetailsRoute = require('./Routes/DashboardDetails/DetailsRoute.js');
 const EventRoute = require('./Routes/EventRoutes/EditEvent.js');
+const UserDetailRoute = require('./Routes/GetDetailRoute/UserDetailRoute.js');
+const EventDetailRoute = require('./Routes/GetDetailRoute/EventDetails.js');
 const cors = require('cors');
+const { User } = require('./Models/Models.js');
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -22,5 +24,7 @@ mongoose.connect('mongodb://localhost:27017/ENDTOEND')
 app.use("/api", Signroute);
 app.use('/api', loginRoute);
 app.use('/api',Tokenverify);
-app.use('/dashboard',DetailsRoute);
+
 app.use('/api', EventRoute);
+app.use('/user',UserDetailRoute);
+app.use('/event', EventDetailRoute);

@@ -1,6 +1,6 @@
-const express = require('express');
-const User = require('../../Models/Models.js');
-const DetailController = async (req,res)=>{
+
+const {User} = require('../../Models/Models.js');
+const UserDetailController = async (req,res)=>{
     const userid=req.params.userid;
     try{
         const user=await User.findById(userid);
@@ -13,4 +13,4 @@ const DetailController = async (req,res)=>{
         console.error("Error fetchinfg the data:", error);
     }
 }
-module.exports = DetailController;
+module.exports = UserDetailController;
