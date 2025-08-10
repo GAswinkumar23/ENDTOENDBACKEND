@@ -28,3 +28,4 @@ app.use('/api',Tokenverify);
 app.use('/api', EventRoute);
 app.use('/user',UserDetailRoute);
 app.use('/event', EventDetailRoute);
+app.use('/event',EventRoute);
