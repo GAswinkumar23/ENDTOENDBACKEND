@@ -7,6 +7,7 @@ const Tokenverify = require('./Routes/Middleware/TokenVerify.js');
 const EventRoute = require('./Routes/EventRoutes/EditEvent.js');
 const UserDetailRoute = require('./Routes/GetDetailRoute/UserDetailRoute.js');
 const EventDetailRoute = require('./Routes/GetDetailRoute/EventDetails.js');
+const EditUserDetails=require('./Routes/EditUserRoute/EditUserDetails.js')
 const cors = require('cors');
 const { User } = require('./Models/Models.js');
 const app = express();
@@ -26,6 +27,7 @@ app.use('/api', loginRoute);
 app.use('/api',Tokenverify);
 
 app.use('/api', EventRoute);
+app.use('/api',EditUserDetails);
 app.use('/user',UserDetailRoute);
 app.use('/event', EventDetailRoute);
 app.use('/event',EventRoute);
